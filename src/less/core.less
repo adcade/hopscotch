@@ -73,7 +73,7 @@ div.hopscotch-bubble {
   }
 
   .hopscotch-bubble-content {
-    margin: 0 0 0 (@circleWidth + 10px);
+    margin: 0;
   }
 
   &.no-number .hopscotch-bubble-content {
@@ -81,23 +81,13 @@ div.hopscotch-bubble {
   }
 
   .hopscotch-bubble-close {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    background-color: transparent;
     border: 0;
     color: #000;
-    background: transparent @spriteUrl -192px -92px no-repeat;
     display: block;
-    padding: 8px;
-    position: absolute;
+    margin-top: 10px;
+    padding: 0;
     text-decoration: none;
-    text-indent: -9999px;
-
-    width: 8px;
-    height: 8px;
-
-    top: 0;
-    right: 0;
 
     &.hide,
     &.hide-all {
@@ -210,6 +200,48 @@ div.hopscotch-bubble {
 
   .hopscotch-actions {
     margin: 10px 0 0;
+    overflow: hidden;
     text-align: right;
   }
+
 }
+
+  .hopscotch-progress {
+    min-height: 12px;
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+
+    .hopscotch-progress-step {
+      display: inline-block;
+      float: left;
+      font-size: 0;
+      list-style-type: none;
+      margin: 0;
+      min-height: 12px;
+      position: relative;
+      text-align: center;
+    }
+
+    .hopscotch-progress-step-on {
+      background-color: @standardBlue;
+      color: #fff;
+    }
+
+    .hopscotch-progress-step-off {
+      background-color: rgba(0, 124, 250, .39);
+      color: rgba(0, 0, 0, .5);
+    }
+
+    .hopscotch-progress-step::before {
+      border-right: 1px solid red;
+      display: inline-block;
+      min-height: 12px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+  }

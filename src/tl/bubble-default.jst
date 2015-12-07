@@ -7,7 +7,6 @@
   }
 %>
 <div class="hopscotch-bubble-container" style="width: <%= step.width %>px; padding: <%= step.padding %>px;">
-  <% if(tour.isTour){ %><span class="hopscotch-bubble-number"><%= i18n.stepNum %></span><% } %>
   <div class="hopscotch-bubble-content">
     <% if(step.title !== ''){ %><h3 class="hopscotch-title"><%= optEscape(step.title, tour.unsafe) %></h3><% } %>
     <% if(step.content  !== ''){ %><div class="hopscotch-content"><%= optEscape(step.content, tour.unsafe) %></div><% } %>
@@ -17,6 +16,17 @@
     <% if(buttons.showCTA){ %><button class="hopscotch-nav-button next hopscotch-cta"><%= buttons.ctaLabel %></button><% } %>
     <% if(buttons.showNext){ %><button class="hopscotch-nav-button next hopscotch-next"><%= i18n.nextBtn %></button><% } %>
   </div>
+  <ul class="hopscotch-progress">
+  <%   
+  var stepWidth = Math.floor(100/tour.numSteps);
+  var lastStepWidth = 100 - (stepWidth * tour.numSteps) + stepWidth;
+  for(var s=0; s<tour.numSteps; s++) {
+
+    var onOrPastStepClass = s <= step.num ? " hopscotch-progress-step-on" : " hopscotch-progress-step-off";
+    %>
+      <li class="hopscotch-progress-step<%= onOrPastStepClass %>" style="width: <%= s < tour.numSteps-1 ? stepWidth : lastStepWidth %>%"><span><%= (s+1) %></span></li>
+    <% }%>
+  </ul>
   <% if(buttons.showClose){ %><button class="hopscotch-bubble-close hopscotch-close"><%= i18n.closeTooltip %></button><% } %>
 </div>
 <div class="hopscotch-bubble-arrow-container hopscotch-arrow">

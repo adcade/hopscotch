@@ -60,8 +60,15 @@ var tour = {
       content: 'Now go and build some great tours!',
     }
   ],
+
   showPrevButton: true,
-  scrollTopMargin: 100
+  scrollTopMargin: 100,
+  showClose: true,
+  i18n:{
+    nextBtn: "Next",
+    prevBtn: "Prev",
+    closeTooltip: "xxI'm a master. I've learned all I can. Get me the fuck outta here."
+  }
 },
 
 /* ========== */
